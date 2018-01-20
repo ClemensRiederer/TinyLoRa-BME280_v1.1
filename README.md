@@ -1,4 +1,4 @@
-# TinyLoRa-BME280
+# TinyLoRa-BME280 v1.1
 Arduino library for a Atmospheric Sensor BME280 LoRaWan Node.
 The LoRa Node measures barometric pressure, humidity, and temperature every 15 min. 
 After the measurements, the ATtiny85 goes into sleep mode and is awakened by the watchdog timer.
