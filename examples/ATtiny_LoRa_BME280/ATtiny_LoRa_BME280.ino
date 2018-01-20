@@ -72,7 +72,7 @@ void loop()
 
     SPI.end();
     
-    // set DO, SCK as normal i/o inputs and low. not draining current from the BME280 sleep mode
+    // set DO, SCK as input and low prevents current draw in sleep mode.
     DDRB &= ~((1 << PB1) | (1 << PB2));
     PORTB &= ~((1 << PB0) | (1 << PB1) | (1 << PB2));
   }
