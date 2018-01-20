@@ -38,5 +38,5 @@ Change Spreading factor as you like.
 * ATtiny85 PB4 ---> NSS RFM95 (Slave Select)
 * ATtiny85 PB2 ---> SCK RFM59  ---> SCK BME280
 * ATtiny85 PB1(DO) ---> MOSI RFM95 ---> SDI BME280 (Data going into the BME280)
-ATtiny85 PB0(DI) ---> MISO RFM95 ---> SDO BME280 (Data coming out of the BME280)
+* ATtiny85 PB0(DI) ---> MISO RFM95 ---> SDO BME280 (Data coming out of the BME280)
 
