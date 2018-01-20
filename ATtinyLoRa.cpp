@@ -108,9 +108,6 @@ void TinyLoRa::RFM_Send_Package(unsigned char *RFM_Tx_Package, unsigned char Pac
   
   // wait for standby mode
   _delay_ms(10);
-  
-  //Switch DIO0 to TxDone
-  RFM_Write(0x40,0x40);
 
   // change the channel of the RFM module
   switch (randomNum) {
