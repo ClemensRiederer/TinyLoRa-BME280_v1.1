@@ -32,7 +32,7 @@ Change Spreading factor as you like.
 Jumper Wires for programming
 
 # wiring everything up
-ATtiny85VCC ---> Breadboard VCC
+* Item ATtiny85VCC ---> Breadboard VCC
 ATtiny85 GND ---> Breadboard GND
 ATtiny85 PB3 ---> CS BME280 (Slave Select)
 ATtiny85 PB4 ---> NSS RFM95 (Slave Select)
