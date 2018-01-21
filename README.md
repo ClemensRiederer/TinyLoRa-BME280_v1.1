@@ -6,6 +6,16 @@ The RFM module sends the values to the TTN backend with Activation by Personaliz
 a fixed spreading factor and one of the four random channels.
 The example sketch that fits in the 8K Bytes Flash Memory of the ATtiny85
 
+## Version 1.1
+This version does not make use of the hardware interrupt DIO0 pin from the RFM module.
+Two pins from the ATtiny85 are required for SS.
+* PB3 ---> CS BME280 (Slave Select)
+* PB4 ---> NSS RFM95 (Slave Select)
+And the Universal Serial Interface pins
+* SCK
+* DO
+* DI
+
 ## Installing
 Install the zip file in your Arduino IDE.
 Click on the toolbar menu: Sketch -> Include Library -> Add .ZIP Library -> "downloaded zip file"
