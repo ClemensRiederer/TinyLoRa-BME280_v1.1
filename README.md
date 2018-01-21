@@ -1,4 +1,4 @@
-# TinyLoRa-BME280 v1.1
+### TinyLoRa-BME280 v1.1
 Arduino library for a Atmospheric Sensor BME280 LoRaWan Node.
 The LoRa Node measures barometric pressure, humidity, and temperature every 5 min. 
 After the measurements, the ATtiny85 goes into sleep mode and is awakened by the watchdog timer.
@@ -6,7 +6,7 @@ The RFM module sends the values to the TTN backend with Activation by Personaliz
 a fixed spreading factor and one of the four random channels.
 The example sketch that fits in the 8K Bytes Flash Memory of the ATtiny85
 
-# Installing
+## Installing
 Install the zip file in your Arduino IDE.
 Click on the toolbar menu: Sketch -> Include Library -> Add .ZIP Library -> "downloaded zip file"
 Once done click OK to save and restart the Arduino IDE.
@@ -15,12 +15,12 @@ This library uses the tinySPI library http://github.com/JChristensen/tinySPI
 for communication with the BME280 and the Hope RFM95 module.
 Install this library too.
 
-# Adding Third Party Boards to the Arduino IDE
+## Adding Third Party Boards to the Arduino IDE
 The Boards Manager makes it easy to add support for other hardware.
 Click on the toolbar menu: File -> Preferences -> Additional Boards Manager URLs: "Paste the following URL into the field"
 https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
 
-# Configuration
+## Configuration
 * Change the NwkSkey,AppSkey,DevAddr acording your own TTN keys.
 ```
 // use your keys from TTN
@@ -28,6 +28,7 @@ uint8_t NwkSkey[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x
 uint8_t AppSkey[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 uint8_t DevAddr[4] = { 0x00, 0x00, 0x00, 0x00 };
 ```
+# optional	
 * Change the interval of measurements and radio transmission with the SLEEP_TOTAL var
 ```
 #define SLEEP_TOTAL 37 // 37*8s = 296s ~5min
@@ -45,7 +46,7 @@ uint8_t DevAddr[4] = { 0x00, 0x00, 0x00, 0x00 };
   RFM_Write(0x26,0x04); //Low datarate optimization off AGC auto on
 ```
 
-# Needed Parts
+## Needed Parts
 * 1x ATtiny85V 10PU Microcontroller
 * 1x BME280 Breakout Board
 * 1x RFM95 Transceiver Module
@@ -56,7 +57,7 @@ uint8_t DevAddr[4] = { 0x00, 0x00, 0x00, 0x00 };
 * 1x Arduino UNO (for programming)
 * Jumper Wires for programming
 
-# Wiring Everything Up
+## Wiring Everything Up
 * ATtiny85VCC ---> Breadboard VCC
 * ATtiny85 GND ---> Breadboard GND
 * ATtiny85 PB3 ---> CS BME280 (Slave Select)
