@@ -41,14 +41,14 @@ uint8_t DevAddr[4] = { 0x00, 0x00, 0x00, 0x00 };
   RFM_Write(0x26,0x04); //Low datarate optimization off AGC auto on
   
   //SF8 BW 125 kHz
-	RFM_Write(0x1E,0x84); //SF8 CRC On
-	RFM_Write(0x1D,0x72); //125 kHz 4/5 coding rate explicit header mode
-	RFM_Write(0x26,0x04); //Low datarate optimization off AGC auto on
+  RFM_Write(0x1E,0x84); //SF8 CRC On
+  RFM_Write(0x1D,0x72); //125 kHz 4/5 coding rate explicit header mode
+  RFM_Write(0x26,0x04); //Low datarate optimization off AGC auto on
   
   //SF9 BW 125 kHz
-	RFM_Write(0x1E,0x94); //SF9 CRC On
-	RFM_Write(0x1D,0x72); //125 kHz 4/5 coding rate explicit header mode
-	RFM_Write(0x26,0x04); //Low datarate optimization off AGC auto on 
+  RFM_Write(0x1E,0x94); //SF9 CRC On
+  RFM_Write(0x1D,0x72); //125 kHz 4/5 coding rate explicit header mode
+  RFM_Write(0x26,0x04); //Low datarate optimization off AGC auto on 
 
   //SF10 BW 125 kHz
   RFM_Write(0x1E,0xA4); //SF10 CRC On
