@@ -12,6 +12,7 @@ Two pins from the ATtiny85 are required for SS.
 * PB3 ---> CS BME280 (Slave Select)
 * PB4 ---> NSS RFM95 (Slave Select)
 
+⋅⋅⋅You can have properly indented paragraphs within list items.
 ⋅⋅⋅And the Universal Serial Interface pins
 * SCK
 * DO
