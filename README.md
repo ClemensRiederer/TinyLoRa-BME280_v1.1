@@ -11,7 +11,8 @@ This version does not make use of the hardware interrupt DIO0 pin from the RFM m
 Two pins from the ATtiny85 are required for SS.
 * PB3 ---> CS BME280 (Slave Select)
 * PB4 ---> NSS RFM95 (Slave Select)
-And the Universal Serial Interface pins
+
+⋅⋅⋅And the Universal Serial Interface pins
 * SCK
 * DO
 * DI
