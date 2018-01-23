@@ -4,7 +4,7 @@ The LoRa Node measures barometric pressure, humidity, and temperature every 5 mi
 After the measurements, the ATtiny85 goes into sleep mode and is awakened by the watchdog timer.
 The RFM module sends the values to the TTN backend with Activation by Personalization (ABP) 
 a fixed spreading factor and one of the four random channels.
-The example sketch that fits in the 8K Bytes Flash Memory of the ATtiny85
+The example sketch fits in the 8K Bytes Flash Memory of the ATtiny85
 
 ## Version 1.1
 This version does not make use of the hardware interrupt DIO0 pin from the RFM module.
@@ -66,6 +66,19 @@ uint8_t DevAddr[4] = { 0x00, 0x00, 0x00, 0x00 };
   RFM_Write(0x1D,0x72); //125 kHz 4/5 coding rate explicit header mode
   RFM_Write(0x26,0x04); //Low datarate optimization off AGC auto on
 ```
+## Features
+supported
+* Sending packets uplink
+* Encryption and message integrity checking.
+* Custom frequencies and datarate settings.
+* (ABP) Activation by personalization
+* Custom sleep time in power down mode 
+* Humidity in %, Pressure in hPa, Temperature negative and positive celsius degree.
+
+not supported
+
+* receiving packets downlink
+* Over the Air Activation (OTAA)
 
 ## Needed Parts
 * 1x ATtiny85V 10PU Microcontroller
@@ -73,10 +86,7 @@ uint8_t DevAddr[4] = { 0x00, 0x00, 0x00, 0x00 };
 * 1x RFM95 Transceiver Module
 * 1x Breadboard
 * 2x Li-Ion Rechargeable Batteries 1.2 V
-* 1x Battery Holder
-* 1x 22 AWG Solid Wire
 * 1x Arduino UNO (for programming)
-* Jumper Wires for programming
 
 ## Wiring Everything Up
 * ATtiny85VCC ---> Breadboard VCC
@@ -85,5 +95,22 @@ uint8_t DevAddr[4] = { 0x00, 0x00, 0x00, 0x00 };
 * ATtiny85 PB4 ---> NSS RFM95 (Slave Select)
 * ATtiny85 PB2 ---> SCK RFM59  ---> SCK BME280
 * ATtiny85 PB1(DO) ---> MOSI RFM95 ---> SDI BME280 (Data going into the BME280)
-* ATtiny85 PB0(DI) ---> MISO RFM95 ---> SDO BME280 (Data coming out of the BME280)
+* ATtiny85 PB0(DI) ---> MISO RFM95 ---> SDO BME280 (Data coming out of the BME280) TTN Decoder function
+
+## TTN Decoder function
+```
+function Decoder(bytes) {
+
+  //for negative and positive celsius degree
+  var t = (bytes[0] & 0x80 ? 0xFFFF<<16 : 0) | bytes[0]<<8 | bytes[1];
+  var h = bytes[2];
+  var p = bytes[3] << 8 | bytes[4];
+
+  return {
+    temperature: t / 100,
+    humidity: h,
+    pressure : p / 10
+  }
+}
+```
 
