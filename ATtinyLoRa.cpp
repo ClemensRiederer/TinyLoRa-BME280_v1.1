@@ -162,7 +162,9 @@ void TinyLoRa::RFM_Send_Package(unsigned char *RFM_Tx_Package, unsigned char Pac
   RFM_Write(0x01,0x83);
  
   //Wait for TxDone in the RegIrqFlags register
-  while(RFM_Read(0x12) & 0x08) { }
+  while((RFM_Read(0x12) & 0x08) != 0x08)
+  {
+  }
 
   //Clear interrupt
   RFM_Write(0x12,0x08);
